@@ -1,23 +1,6 @@
-# flutterMobile
-
-A new Flutter project.
-
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
-##PLAYGROUND
 
 <h6>Remote</h6>
-<pre>
+
 # Set a new remote
     $ git remote add origin https://github.com/user/repo.git
         > remote will be added as "origin"
@@ -30,21 +13,21 @@ samples, guidance on mobile development, and a full API reference.
 # Removing a remote
     $ git remote rm origin
 
-</pre>
+
 <hr>
 
 <h6>Commit</h6>
-<pre>
+
 # Add, commit and push
     $ git add . 
     $ git commit -m "message" 
     $ git push
-</pre>
+
 
 <hr>
 
 <h6>Manage branches</h6>
-<pre>
+
 # Before creating a new branch pull the changes from upstream. 
     $ git pull
         > Your master needs to be up to date
@@ -94,4 +77,3 @@ samples, guidance on mobile development, and a full API reference.
     $ git branch [name_of_your_new_branch]
         > This will create a new branch
 
-</pre>
