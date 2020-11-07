@@ -23,7 +23,7 @@ main(List<String> args) {
 
   //Create a new list
   var listOfPerson = new List<Person>();
-  //Add
+  //Add to var listOfPersonn
   listOfPerson.add(person1);
   listOfPerson.add(person2);
   listOfPerson.add(person3);
