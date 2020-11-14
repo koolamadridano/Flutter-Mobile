@@ -13,22 +13,33 @@ class QuoteMessages extends StatelessWidget {
         height: 250, //set height
         margin: EdgeInsets.all(30.0), //margin
         padding: EdgeInsets.all(30.0), //padding
-        decoration: BoxDecoration(
-          color: Colors.transparent, //box background
-          borderRadius: BorderRadius.circular(10),
-          // border: Border.all(
-          //     style: BorderStyle.solid,
-          //     width: 0.1,
-          //     color: Colors.indigo),
-        ),
+        // decoration: BoxDecoration(
+        //   color: Colors.grey,
+        //   borderRadius: BorderRadius.circular(20),
+        //   border: Border.all(
+        //     style: BorderStyle.solid,
+        //     width: 1.5,
+        //     color: colorGrey,
+        //   ),
+        // ),
         child: Center(
           child: quoteIndex < quotes.length - 1
               ? Text(
                   //quotes[_quoteIndex % quotes.length],
                   quotes[quoteIndex],
                   textAlign: TextAlign.center,
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey.shade600,
+                    fontWeight: FontWeight.w400,
+                  ),
                 )
-              : Text("Quotes reached it's limit"),
+              : Text("The end",
+                  style: TextStyle(
+                    fontSize: 18,
+                    color: Colors.grey.shade600,
+                    fontWeight: FontWeight.w400,
+                  )),
         ));
   }
 }
