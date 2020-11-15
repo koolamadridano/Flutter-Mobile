@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutterMobile/views/normal-quiz-true-or-false/data/questions.dart';
+import 'package:flutterMobile/views/normal-quiz-true-or-false/widgets/normal_quiz_appbar.dart';
 
 class QuizApp extends StatefulWidget {
   @override
@@ -23,9 +25,23 @@ class _QuizAppState extends State<QuizApp> {
 
   _answer(bool answer) {
     if (answer == questions[_questionIndex].isCorrect) {
-      debugPrint("Answer is correct");
+      final snackbar = SnackBar(
+        content: Text("Answer is correct"),
+        backgroundColor: Colors.green,
+        duration: Duration(milliseconds: 500),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackbar);
+      setState(() {
+        _questionIndex += 1;
+      });
+      //Scaffold.of(context).showS
     } else {
-      debugPrint("Answer is wrong");
+      final snackbar = SnackBar(
+        content: Text("Answer is wrong"),
+        backgroundColor: Colors.redAccent,
+        duration: Duration(milliseconds: 500),
+      );
+      ScaffoldMessenger.of(context).showSnackBar(snackbar);
     }
   }
 
@@ -45,14 +61,12 @@ class _QuizAppState extends State<QuizApp> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          "KDRAMA TEST",
-          style: TextStyle(
-            fontWeight: FontWeight.w400,
-            fontSize: 17,
-          ),
-        ),
+        title: NormalQuizAppBar(),
         backgroundColor: Colors.redAccent,
+        actions: [
+          Icon(Icons.notifications_none_outlined),
+          Icon(Icons.settings),
+        ],
       ),
       body: Container(
         child: Column(
@@ -68,7 +82,7 @@ class _QuizAppState extends State<QuizApp> {
                 ),
                 child: Center(
                   child: Text(
-                    questions[_questionIndex % 2].questionText,
+                    questions[_questionIndex].questionText,
                     style: TextStyle(
                         fontSize: 25,
                         color: Colors.black,
@@ -83,12 +97,11 @@ class _QuizAppState extends State<QuizApp> {
       ),
       bottomNavigationBar: Container(
         padding: EdgeInsets.all(5),
-        color: Colors.red,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             IconButton(
-              icon: Icon(Icons.arrow_back_ios_outlined, color: Colors.white),
+              icon: Icon(Icons.arrow_back_ios_outlined, color: Colors.black),
               onPressed: _prevQuestion,
             ),
             TextButton(
@@ -96,7 +109,7 @@ class _QuizAppState extends State<QuizApp> {
                 "True",
                 style: TextStyle(
                     fontSize: 18,
-                    color: Colors.white,
+                    color: Colors.black,
                     fontWeight: FontWeight.w300),
               ),
               onPressed: () => _answer(true),
@@ -105,12 +118,12 @@ class _QuizAppState extends State<QuizApp> {
               child: Text("False",
                   style: TextStyle(
                       fontSize: 18,
-                      color: Colors.white,
+                      color: Colors.black,
                       fontWeight: FontWeight.w300)),
               onPressed: () => _answer(false),
             ),
             IconButton(
-              icon: Icon(Icons.arrow_forward_ios_outlined, color: Colors.white),
+              icon: Icon(Icons.arrow_forward_ios_outlined, color: Colors.black),
               onPressed: _nextQuestion,
             )
           ],

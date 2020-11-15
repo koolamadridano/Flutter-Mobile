@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutterMobile/views/normal-quiz-true-or-false/index.dart';
+import 'package:flutterMobile/views/simple-movie-app/index.dart';
 
 void main() {
   runApp(new MaterialApp(
-    home: QuizApp(),
+    home: MovieApp(),
   ));
 }
